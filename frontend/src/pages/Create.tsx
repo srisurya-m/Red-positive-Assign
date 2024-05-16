@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ChangeEvent, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
     const navigate = useNavigate();
@@ -11,7 +11,6 @@ const Create = () => {
     email: "",
   });
 
-  const { id } = useParams();
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -25,7 +24,7 @@ const Create = () => {
 
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response  = await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/details/create`,formData)
+     await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/details/create`,formData)
     setFormData({
       name: "",
       phoneNumber: "",

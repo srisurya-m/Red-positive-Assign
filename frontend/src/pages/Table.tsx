@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "../components/Loader";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { FaPlus, FaCheck } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 
 type DataType = {
   _id: string;
@@ -19,7 +19,7 @@ const Table = () => {
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
 
   const handleDelete = async (id: string) => {
-    const response = await axios.delete(
+     await axios.delete(
       `${import.meta.env.VITE_SERVER}/api/v1/details/${id}`
     );
     fetchData();
@@ -37,7 +37,7 @@ const Table = () => {
   const handelclick = async() =>{
     for (let index = 0; index < selectedRows.length; index++) {
       const element = selectedRows[index];
-      const response = await axios.get(
+       await axios.get(
       `${import.meta.env.VITE_SERVER}/api/v1/details/mail/${element}`
       );
     }

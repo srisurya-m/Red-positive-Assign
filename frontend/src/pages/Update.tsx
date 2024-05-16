@@ -25,7 +25,7 @@ const Update = () => {
 
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response  = await axios.put(`${import.meta.env.VITE_SERVER}/api/v1/details/${id}`,formData)
+     await axios.put(`${import.meta.env.VITE_SERVER}/api/v1/details/${id}`,formData)
     setFormData({
       name: "",
       phoneNumber: "",
